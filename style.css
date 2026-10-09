@@ -421,9 +421,7 @@ input:focus-visible {
     color: #353a33;
     font-size: 12px;
     font-weight: 600;
-    transition:
-        background-color 0.2s ease,
-        border-color 0.2s ease;
+    
 }
 
 .google-button:hover {
@@ -809,22 +807,6 @@ input:focus-visible {
 
     .footer-links {
         gap: 12px;
-    }
-
-}
-
-
-/* =========================================
-   21. REDUCED MOTION ACCESSIBILITY
-========================================= */
-@media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        transition-duration: 0.01ms !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
     }
 
 }
