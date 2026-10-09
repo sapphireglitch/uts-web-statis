@@ -1,0 +1,830 @@
+/* =========================================
+   ATELIER — AUTHENTICATION PAGE
+   External CSS Stylesheet
+========================================= */
+
+
+/* 1. RESET & BASE SETTINGS */
+
+:root {
+    --ink: #252b25;
+    --muted: #777c73;
+    --paper: #fbfaf7;
+    --line: #e8e7e0;
+    --accent: #b7ce83;
+    --forest: #334c3c;
+    --white: #ffffff;
+
+    --font-body: "DM Sans", sans-serif;
+    --font-display: "Playfair Display", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--ink);
+    background-color: var(--paper);
+    -webkit-font-smoothing: antialiased;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid #567b48;
+    outline-offset: 4px;
+}
+
+/* 2. MAIN SPLIT-SCREEN LAYOUT */
+.auth-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+    min-height: 100vh;
+}
+
+/* =========================================
+   3. LEFT VISUAL PANEL
+========================================= */
+.visual-panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 34px 42px 26px;
+    isolation: isolate;
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            ellipse at 15% 15%,
+            rgba(178, 113, 255, 0.95) 0%,
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 85% 30%,
+            rgba(255, 139, 194, 0.88) 0%,
+            transparent 45%
+        ),
+        radial-gradient(
+            ellipse at 75% 90%,
+            rgba(132, 205, 151, 0.85) 0%,
+            transparent 43%
+        ),
+        linear-gradient(
+            135deg,
+            #59417e 0%,
+            #b36fbd 40%,
+            #e69abf 68%,
+            #628e78 100%
+        );
+}
+
+/* 4. BRAND */
+.visual-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    width: fit-content;
+}
+
+.brand-symbol {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--forest);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-style: italic;
+}
+
+.brand-light .brand-symbol {
+    background: var(--accent);
+    color: var(--ink);
+}
+
+.brand-name {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: -1.2px;
+}
+
+.edition-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #d1dccd;
+}
+
+
+/* 5. DECORATIVE ARTWORK */
+.artwork {
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    width: min(440px, 85%);
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+}
+
+.artwork-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1;
+    border: 1px solid rgba(222, 234, 204, 0.25);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ring-one {
+    width: 91%;
+}
+
+.ring-two {
+    width: 69%;
+    border-style: dashed;
+    border-color: rgba(222, 234, 204, 0.22);
+}
+
+.artwork-orbit {
+    position: absolute;
+    inset: 10%;
+    border: 1px solid rgba(222, 234, 204, 0.35);
+    border-radius: 50%;
+    transform: rotate(-34deg) scaleY(0.62);
+}
+
+.orbit-dot {
+    position: absolute;
+    top: 5%;
+    left: 15%;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 25px rgba(183, 206, 131, 0.35);
+}
+
+.artwork-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 54%;
+    aspect-ratio: 1;
+    border: 1px solid rgba(226, 234, 215, 0.28);
+    border-radius: 50%;
+    background: rgba(236, 242, 224, 0.055);
+    box-shadow: 0 0 70px rgba(0, 0, 0, 0.08);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.center-small {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #d1dccd;
+}
+
+.center-large {
+    margin: 5px 0 8px;
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.5vw, 43px);
+    font-style: italic;
+    color: #e2ebd6;
+    letter-spacing: -1.5px;
+}
+
+.center-bottom {
+    font-size: 8px;
+    letter-spacing: 2px;
+}
+
+
+/* 6. FLOATING ARTWORK LABELS */
+.floating-note {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(30, 48, 36, 0.76);
+    backdrop-filter: blur(12px);
+    color: #edf1e8;
+    font-size: 10px;
+    letter-spacing: 0.1px;
+}
+
+.note-top {
+    top: 21%;
+    right: -1%;
+    padding: 12px 15px;
+    border-radius: 3px;
+}
+
+.note-dot {
+    width: 6px;
+    height: 6px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.note-bottom {
+    bottom: 17%;
+    left: -2%;
+    padding: 13px 15px;
+    border-radius: 3px;
+}
+
+/* 7. LEFT PANEL COPY */
+
+.visual-caption {
+    position: relative;
+    z-index: 2;
+    max-width: 450px;
+    margin-top: auto;
+    padding-top: 280px;
+    padding-bottom: 40px;
+}
+
+.caption-eyebrow {
+    margin-bottom: 18px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #c3d3b6;
+}
+
+.visual-caption h1 {
+    font-family: var(--font-display);
+    font-size: clamp(30px, 3.2vw, 43px);
+    font-weight: 500;
+    line-height: 1.22;
+    letter-spacing: -1px;
+}
+
+.visual-caption h1 em {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.caption-description {
+    max-width: 340px;
+    margin-top: 17px;
+    color: #f9f7f7;
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+.visual-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.17);
+    padding-top: 19px;
+    color: #c7d2c3;
+    font-size: 8px;
+    font-weight: 500;
+    letter-spacing: 1.1px;
+}
+
+
+/* =========================================
+   8. RIGHT FORM PANEL
+========================================= */
+
+.form-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+    min-height: 100vh;
+    padding: 38px clamp(28px, 6vw, 90px) 25px;
+    background: var(--paper);
+}
+
+.mobile-brand {
+    display: none;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 390px;
+    margin: auto;
+    padding: 42px 0;
+}
+
+.login-title {
+    color: rgb(207, 19, 207)
+}
+
+
+/* 9. FORM HEADING */
+
+.form-heading {
+    margin-bottom: 30px;
+}
+
+.welcome-label {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #657d54;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.form-heading h2 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 3.2vw, 42px);
+    font-weight: 500;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+}
+
+.form-heading h2 em {
+    color: #718b5a;
+    font-weight: 500;
+}
+
+.form-heading p {
+    margin-top: 12px;
+    color: #73776f;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+
+/* 10. GOOGLE BUTTON */
+
+.google-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 16px;
+    border: 1px solid #dcded6;
+    border-radius: 5px;
+    background: transparent;
+    color: #353a33;
+    font-size: 12px;
+    font-weight: 600;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.google-button:hover {
+    border-color: #9da995;
+    background: #f2f2eb;
+}
+
+.google-icon {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+
+/* 11. DIVIDER */
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 25px 0;
+}
+
+.divider span {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+}
+
+.divider p {
+    flex-shrink: 0;
+    color: #898c83;
+    font-size: 10px;
+}
+
+
+/* =========================================
+   12. INPUT FIELDS
+========================================= */
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.form-group > label,
+.password-heading > label {
+    color: #343a32;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid #dfe0d8;
+    border-radius: 5px;
+    background: #fffefa;
+    color: var(--ink);
+    font-size: 12px;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #a0a198;
+}
+
+.form-group input:focus {
+    border-color: #738a5f;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(115, 138, 95, 0.12);
+}
+
+.password-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+}
+
+.forgot-link {
+    color: #587249;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.forgot-link:hover {
+    color: #334c3c;
+    text-decoration: underline;
+}
+
+
+/* 13. PASSWORD VISIBILITY BUTTON */
+
+.password-wrapper {
+    position: relative;
+}
+
+.password-wrapper input {
+    padding-right: 48px;
+}
+
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 13px;
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: #777c73;
+    transform: translateY(-50%);
+}
+
+.password-toggle:hover {
+    color: #334c3c;
+}
+
+.password-toggle svg {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* 14. REMEMBER ME */
+
+.form-options {
+    display: flex;
+    align-items: center;
+    margin-top: -5px;
+}
+
+.remember-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #5f645b;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.remember-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.custom-checkbox {
+    display: grid;
+    place-items: center;
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    border: 1px solid #c9ccc1;
+    border-radius: 3px;
+    background: #fffefa;
+}
+
+.remember-option input:checked + .custom-checkbox {
+    border-color: #405c40;
+    background: #405c40;
+}
+
+.remember-option input:checked + .custom-checkbox::after {
+    width: 4px;
+    height: 7px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    content: "";
+    transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.remember-option input:focus-visible + .custom-checkbox {
+    outline: 3px solid #567b48;
+    outline-offset: 3px;
+}
+
+/* 15. PRIMARY SIGN IN BUTTON */
+.submit-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 49px;
+    margin-top: 1px;
+    padding: 0 17px;
+    border: 1px solid #344b37;
+    border-radius: 5px;
+    background: #344b37;
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 600;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background: #24382a;
+}
+
+.submit-button:active {
+    transform: scale(0.99);
+}
+
+.submit-button svg {
+    width: 19px;
+    height: 19px;
+}
+
+
+/* 16. SIGN UP TEXT */
+.signup-text {
+    margin-top: 27px;
+    color: #777c73;
+    font-size: 11px;
+    text-align: center;
+}
+
+.signup-text a {
+    margin-left: 3px;
+    color: #45613f;
+    font-weight: 700;
+}
+
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* 17. FORM FOOTER */
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    color: #898c83;
+    font-size: 9px;
+    letter-spacing: 0.3px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 18px;
+}
+
+.footer-links a:hover {
+    color: var(--forest);
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   18. MEDIUM SCREENS
+========================================= */
+@media screen and (max-width: 1100px) {
+    .visual-panel {
+        padding-right: 28px;
+        padding-left: 28px;
+    }
+
+    .form-panel {
+        padding-right: 35px;
+        padding-left: 35px;
+    }
+
+    .edition-label {
+        font-size: 8px;
+        letter-spacing: 1.2px;
+    }
+
+    .artwork {
+        width: 92%;
+    }
+
+    .note-top {
+        right: -2%;
+    }
+
+    .note-bottom {
+        left: -2%;
+    }
+}
+
+/* =========================================
+   19. TABLET & MOBILE
+========================================= */
+@media screen and (max-width: 767px) {
+    .auth-layout {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .visual-panel {
+        display: none;
+    }
+
+    .form-panel {
+        justify-content: flex-start;
+        min-height: 100vh;
+        padding: 25px 25px 20px;
+    }
+
+    .mobile-brand {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .form-container {
+        max-width: 420px;
+        margin: auto;
+        padding: 35px 0;
+    }
+
+    .form-heading {
+        margin-bottom: 26px;
+    }
+
+    .form-heading h2 {
+        font-size: 37px;
+    }
+
+    .form-footer {
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+    }
+
+}
+
+
+/* =========================================
+   20. SMALL MOBILE SCREENS
+========================================= */
+@media screen and (max-width: 380px) {
+
+    .form-panel {
+        padding-right: 19px;
+        padding-left: 19px;
+    }
+
+    .form-container {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .form-heading h2 {
+        font-size: 33px;
+    }
+
+    .form-heading p {
+        font-size: 11px;
+    }
+
+    .divider {
+        gap: 9px;
+    }
+
+    .divider p {
+        font-size: 9px;
+    }
+
+    .form-footer {
+        font-size: 8px;
+    }
+
+    .footer-links {
+        gap: 12px;
+    }
+
+}
+
+
+/* =========================================
+   21. REDUCED MOTION ACCESSIBILITY
+========================================= */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+
+}

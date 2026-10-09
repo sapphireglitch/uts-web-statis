@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sign in to Atelier, your space for extraordinary experiences.">
+    <title>Atelier — Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="auth-layout">
+        
+        <!-- LEFT PANEL: BRANDING -->
+        <section class="visual-panel" aria-label="Atelier brand introduction">
+            <div class="visual-overlay"></div>
+            <header class="visual-header">
+                <a href="#" class="brand brand-light" aria-label="Atelier homepage">
+                    <span class="brand-symbol">a.</span>
+                    <span class="brand-name">atelier</span>
+                </a>
+                <span class="edition-label">THE ART OF GATHERING</span>
+            </header>
+            <div class="artwork">
+                <div class="artwork-ring ring-one"></div>
+                <div class="artwork-ring ring-two"></div>
+                <div class="artwork-orbit">
+                    <span class="orbit-dot"></span>
+                </div>
+                <div class="artwork-center">
+                    <span class="center-small">CREATE</span>
+                    <span class="center-large">moments</span>
+                    <span class="center-small center-bottom">THAT MATTER</span>
+                </div>
+                <div class="floating-note note-top">
+                    <span class="note-dot"></span>
+                    A different kind of experience
+                </div>
+                <div class="floating-note note-bottom">
+                    <span class="note-dot"></span>
+                    <span>Imagine. Curate. Connect.</span>
+                </div>
+            </div>
+            <div class="visual-caption">
+                <p class="caption-eyebrow">YOUR NEXT CHAPTER STARTS HERE</p>
+                <h1>
+                    Every great story<br>
+                    begins with a <i>gathering.</i>
+                </h1>
+                <p class="caption-description">
+                    A thoughtful space for people who believe
+                    the best moments are the ones we create together.
+                </p>
+            </div>
+        </section>
+
+        <!-- RIGHT PANEL: LOGIN FORM -->
+        <section class="form-panel" aria-labelledby="login-title">
+
+            <header class="mobile-brand">
+                <a href="#" class="brand" aria-label="Atelier homepage">
+                    <span class="brand-symbol">a.</span>
+                    <span class="brand-name">atelier</span>
+                </a>
+            </header>
+            <div class="form-container">
+                <div class="form-heading">
+                    <span class="welcome-label">YOUR SPACE AWAITS</span>
+
+                    <h2 id="login-title">
+                        Welcome <em>back.</em>
+                    </h2>
+                    <p>Sign in to pick up where your next great idea begins.</p>
+                </div>
+
+                <!-- GOOGLE SIGN IN -->
+                <button type="button" class="google-button">
+                    <svg class="google-icon"
+                         viewBox="0 0 48 48"
+                         aria-hidden="true">
+                        <path fill="#EA4335"
+                              d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"
+                              transform="translate(0 5)"/>
+                        <path fill="#4285F4"
+                              d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.72 7.18l7.62 5.91c4.45-4.11 7.14-10.16 7.14-17.56z"/>
+                        <path fill="#FBBC05"
+                              d="M10.53 28.59A14.4 14.4 0 0 1 9.75 24c0-1.59.27-3.13.76-4.59l-7.98-6.19A23.8 23.8 0 0 0 0 24c0 3.87.93 7.53 2.56 10.78l7.97-6.19z"
+                              transform="translate(0 5)"/>
+                        <path fill="#34A853"
+                              d="M24 48c6.48 0 11.93-2.13 15.9-5.79l-7.62-5.91c-2.12 1.42-4.84 2.26-8.28 2.26-6.26 0-11.57-4.22-13.46-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"
+                              transform="translate(0 -5)"/>
+                    </svg>
+                    <span>Sign in with Google</span>
+                </button>
+
+                <!-- DIVIDER -->
+                <div class="divider" aria-hidden="true">
+                    <span></span>
+                    <p>or continue with email</p>
+                    <span></span>
+                </div>
+
+                <!-- LOGIN FORM -->
+                <form action="#" method="post" class="login-form">
+
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="you@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+                    <div class="form-group">
+                        <div class="password-heading">
+                            <label for="password">Password</label>
+                            <a href="#" class="forgot-link">
+                                Forgot password?
+                            </a>
+                        </div>
+                        <div class="password-wrapper">
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="togglePassword"
+                                aria-label="Show password"
+                            >
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    aria-hidden="true"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                >
+                                    <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-option">
+                            <input
+                                type="checkbox"
+                                name="remember"
+                                id="remember"
+                            >
+                            <span class="custom-checkbox"></span>
+                            <span>Remember me</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="submit-button">
+                        <span>Sign In</span>
+                        <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        >
+                            <path d="M5 12h14"/>
+                            <path d="m13 6 6 6-6 6"/>
+                        </svg>
+                    </button>
+                </form>
+                <p class="signup-text">
+                    New to Atelier?
+                    <a href="#">Create an account</a>
+                </p>
+            </div>
+            <footer class="form-footer">
+                <span>© 2026 ATELIER STUDIO</span>
+                <div class="footer-links">
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </footer>
+        </section>
+    </main>
+
+    <!-- SMALL INTERACTION: SHOW / HIDE PASSWORD -->
+    <script>
+        const passwordInput = document.getElementById("password");
+        const togglePassword = document.getElementById("togglePassword");
+        togglePassword.addEventListener("click", function () {
+            const isPassword = passwordInput.type === "password";
+            passwordInput.type = isPassword ? "text" : "password";
+            togglePassword.setAttribute(
+                "aria-label",
+                isPassword ? "Hide password" : "Show password"
+            );
+        });
+    </script>
+</body>
+</html>
